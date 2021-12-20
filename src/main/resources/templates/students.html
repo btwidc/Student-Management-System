@@ -75,6 +75,10 @@
                     <td th:text = "${student.OOP}"></td>
                     <td th:text = "${student.CPA}"></td>
                     <td th:text = "${student.OS}"></td>
+                    <td>
+                        <a th:href="@{/students/edit/{id}(id=${student.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/students/{id}(id=${student.id})}" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
             </tbody>
 
