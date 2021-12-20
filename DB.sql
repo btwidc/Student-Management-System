@@ -1,4 +1,5 @@
 create database javaspring;
+drop database javaspring;
 
 use javaspring;
 
@@ -22,3 +23,8 @@ FOREIGN KEY (user_id)  REFERENCES user (id),
 FOREIGN KEY (role_id)  REFERENCES role (id)
 );
 
+select * from user;
+select * from role;
+select * from users_roles;
+
+insert into user values (1,'Admin', 'Kirill','Kravchenko', 'Admin');

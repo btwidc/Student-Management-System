@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapced"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-conttrols="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/students/new}">
+                Add Student Page
+            </a>
+            <a class="navbar-brand" href="#" th:href="@{/students}">
+                Students Page
+            </a>
+        </div>
+
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<br />
+<br />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 ">
+                <h1 class="text-center">Add New Student</h1>
+                <div class="card-body">
+                    <form th:action="@{/students}" th:object="${student}" method="post">
+                        <div class="form-group">
+
+                            <label>Student First Name</label>
+                            <input type="text"
+                                   name="firstName"
+                                   th:field="*{firstName}"
+                                   class="form-control"
+                                   placeholder="Enter Student First Name"
+                            />
+                            <br/>
+
+                            <label>Student Last Name</label>
+                            <input type="text"
+                                   name="lastName"
+                                   th:field="*{lastName}"
+                                   class="form-control"
+                                   placeholder="Enter Student Last Name"
+                            />
+                            <br/>
+
+                            <label>Student Email</label>
+                            <input type="text"
+                                   name="email"
+                                   th:field="*{email}"
+                                   class="form-control"
+                                   placeholder="Enter Student Email"
+                            />
+                            <br/>
+
+                            <label>Student OOP Mark</label>
+                            <input type="text"
+                                   name="OOP"
+                                   th:field="*{OOP}"
+                                   class="form-control"
+                                   placeholder="Enter Student OOP Mark"
+                            />
+                            <br/>
+
+                            <label>Student CPA Mark</label>
+                            <input type="text"
+                                   name="CPA"
+                                   th:field="*{CPA}"
+                                   class="form-control"
+                                   placeholder="Enter Student CPA Mark"
+                            />
+                            <br/>
+
+                            <label>Student OS Mark</label>
+                            <input type="text"
+                                   name="OS"
+                                   th:field="*{OS}"
+                                   class="form-control"
+                                   placeholder="Enter Student OS Mark"
+                            />
+
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

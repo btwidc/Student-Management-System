@@ -22,7 +22,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#" th:href="@{/}">
-                    Home Page
+                    Admin Page
+                </a>
+                <a class="navbar-brand" href="#" th:href="@{/users}">
+                    Users Page
+                </a>
+                <a class="navbar-brand" href="#" th:href="@{/students}">
+                    Students Page
                 </a>
             </div>
 
@@ -39,9 +45,8 @@
     <br />
 
     <div class="container">
-        <h1>Home Page</h1>>
-
-        Welcome, <span sec:authentication="principal.username">User</span>
+        <br>
+        <h2 style="text-align:center; font-weight: bold; font-size: 40px">Welcome, <span sec:authentication="principal.username">User</span></h2>
     </div>
 
 </body>
