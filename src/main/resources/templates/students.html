@@ -11,7 +11,7 @@
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
+    <div class="container" style="display: flex">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapced"
                     data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -28,6 +28,12 @@
                 Students Page
             </a>
         </div>
+
+        <style>
+            #navbar:last-of-type{
+                margin-left: auto;
+            }
+        </style>
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">

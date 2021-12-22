@@ -9,19 +9,29 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.logging.Logger;
+
 @Controller
 public class StudentController {
+
+    private static final Logger log = Logger.getLogger(String.valueOf(StudentController.class));
 
     private StudentService studentService;
 
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
     }
-    
+
     @GetMapping("/students")
     public String listStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
+    }
+
+    @GetMapping("/marks")
+    public String listStudentsMarks(Model model) {
+        model.addAttribute("students", studentService.getAllStudents());
+        return "marks";
     }
 
     @GetMapping("/students/new")
@@ -34,6 +44,7 @@ public class StudentController {
     @PostMapping("/students")
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.saveStudent(student);
+        log.info("Added student!");
         return "redirect:/students";
     }
 
