@@ -51,29 +51,35 @@
                         <label class="control-label" for="firstName">
                         First Name
                         </label>
-                        <input id = "firstName" class="form-control" th:field="*{firstName}" required autofocus="autofocus" />
+                        <input title="The first name must contain only letters with the first capital letter (2 and more)" id = "firstName" class="form-control" pattern="^([A-Z]{1}[a-z]{1,20})$" th:field="*{firstName}" required autofocus="autofocus" placeholder="Enter First Name" />
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="lastName">
                             Last Name
                         </label>
-                        <input id = "lastName" class="form-control" th:field="*{lastName}" required autofocus="autofocus" />
+                        <input title="The last name must contain only letters with the first capital letter (2 and more)" id = "lastName" class="form-control" pattern="^([A-Z]{1}[a-z]{1,20})$" required autofocus="autofocus" placeholder="Enter Last Name"/>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="email">
                             Email
                         </label>
-                        <input id = "email" class="form-control" th:field="*{email}" required autofocus="autofocus" />
+                        <input title="Email must be in the correct format" id = "email" class="form-control" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" th:field="*{email}" required autofocus="autofocus" placeholder="Enter Email"/>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="password">
                             Password
                         </label>
-                        <input id = "password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus" />
+                        <input title="Password must contain both case letters and numbers (6 and more)" id = "password" class="form-control" type="password" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{6,}$" th:field="*{password}" required autofocus="autofocus" placeholder="Enter Password"/>
                     </div>
+
+                    <style>
+                        #firstName:invalid, #lastName:invalid, #email:invalid, #password:invalid  {
+                            border: 1px solid red;
+                        }
+                    </style>
 
                     <div class="form-group">
                        <button type="submit" class="btn btn-success">Register</button>
